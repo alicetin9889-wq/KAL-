@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>İkra 💞</title>
+
+<style>
+
+body{
+margin:0;
+padding:0;
+overflow:hidden;
+font-family:Arial,sans-serif;
+background:black;
+color:white;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+text-align:center;
+}
+
+.bg{
+position:absolute;
+width:100%;
+height:100%;
+background:linear-gradient(180deg,#ff4d88,#ff99bb,#ffd6e0);
+animation:bgmove 8s infinite alternate;
+z-index:-2;
+}
+
+@keyframes bgmove{
+from{filter:hue-rotate(0deg);}
+to{filter:hue-rotate(20deg);}
+}
+
+.heart{
+position:absolute;
+font-size:25px;
+animation:fly 8s linear infinite;
+opacity:0.7;
+}
+
+@keyframes fly{
+0%{
+transform:translateY(100vh);
+opacity:0;
+}
+100%{
+transform:translateY(-120vh);
+opacity:1;
+}
+}
+
+.container{
+width:90%;
+max-width:420px;
+background:rgba(255,255,255,0.15);
+padding:25px;
+border-radius:30px;
+backdrop-filter:blur(12px);
+box-shadow:0 0 25px rgba(255,255,255,0.4);
+animation:fade 1s;
+}
+
+@keyframes fade{
+from{
+opacity:0;
+transform:scale(0.9);
+}
+to{
+opacity:1;
+transform:scale(1);
+}
+}
+
+button{
+padding:12px 22px;
+border:none;
+border-radius:25px;
+font-size:17px;
+font-weight:bold;
+background:white;
+color:#ff4d88;
+margin-top:20px;
+cursor:pointer;
+}
+
+img{
+width:220px;
+border-radius:20px;
+margin-top:15px;
+animation:spin 8s linear infinite;
+box-shadow:0 0 20px rgba(255,255,255,0.4);
+}
+
+@keyframes spin{
+0%{transform:rotate(-2deg) scale(1);}
+50%{transform:rotate(2deg) scale(1.05);}
+100%{transform:rotate(-2deg) scale(1);}
+}
+
+.ikos{
+position:absolute;
+font-size:18px;
+opacity:0.15;
+animation:rotate 12s linear infinite;
+}
+
+@keyframes rotate{
+from{transform:rotate(0deg);}
+to{transform:rotate(360deg);}
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="bg"></div>
+
+<div class="heart" style="left:10%">💞</div>
+<div class="heart" style="left:30%;animation-delay:2s;">💕</div>
+<div class="heart" style="left:50%;animation-delay:4s;">💖</div>
+<div class="heart" style="left:70%;animation-delay:1s;">💘</div>
+<div class="heart" style="left:85%;animation-delay:5s;">💗</div>
+
+<div class="ikos" style="top:10%;left:5%;">ikos 💞</div>
+<div class="ikos" style="top:70%;left:75%;">ikos 💞</div>
+
+<div class="container">
+
+<h1 id="title">💌 Gizli Dosya</h1>
+
+<div id="content">
+
+<p>
+İkra için hazırlanmış özel dosya açılıyor...
+</p>
+
+<button onclick="next()">Başlat 💞</button>
+
+</div>
+
+</div>
+
+<audio autoplay loop>
+<source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8c8e4b6f0.mp3?filename=romantic-piano-11086.mp3" type="audio/mp3">
+</audio>
+
+<script>
+
+let step=0;
+
+function next(){
+
+step++;
+
+if(step==1){
+
+document.getElementById("content").innerHTML=`
+
+<h2>💖 Mini Soru</h2>
+
+<p>Ali’nin sevmediği şey ne? 😭</p>
+
+<button onclick="correct()">Mobil oyunlar</button>
+
+<button onclick="wrong()">Tost ekmeği</button>
+
+`;
+
+}
+
+}
+
+function wrong(){
+
+alert("Jack bile bunu çözdü 😭");
+
+}
+
+function correct(){
+
+document.getElementById("content").innerHTML=`
+
+<p>
+
+İkra… 💞<br><br>
+
+Seninle konuşmak beklediğimden daha güzel geldi bana.<br><br>
+
+Hot Wheels muhabbetlerimiz, random konuşmalarımız falan istemeden günümün parçası oldu 😭<br><br>
+
+Bir de yeşil gözlerin var tabii…
+</p>
+
+<button onclick="scene2()">Devam Et 💌</button>
+
+`;
+
+}
+
+function scene2(){
+
+document.getElementById("content").innerHTML=`
+
+<p>
+
+Şu mobil oyun olayını sevmemem bile biraz kıskançlıktan galiba 😭<br><br>
+
+Çünkü seni bazen herkesten biraz daha farklı görüyorum.
+</p>
+
+<img src="https://upload.wikimedia.org/wikipedia/en/5/52/Jack_Shephard.jpg">
+
+<button onclick="scene3()">Devam 💞</button>
+
+`;
+
+}
+
+function scene3(){
+
+document.getElementById("content").innerHTML=`
+
+<h2>İYİ Kİ DOĞDUN İKRA 💞</h2>
+
+<img src="https://upload.wikimedia.org/wikipedia/en/thumb/9/9d/Jack_and_Kate.jpg/640px-Jack_and_Kate.jpg">
+
+<p>
+
+Jack & Kate bile sizi onaylıyor 😭
+</p>
+
+<button onclick="finalScene()">Son Mesaj 💌</button>
+
+`;
+
+}
+
+function finalScene(){
+
+document.getElementById("content").innerHTML=`
+
+<h1>Seni seviyorum 💞</h1>
+
+<h2>İyi ki doğdun İkra</h2>
+
+<p>
+
+Bazı insanlar normal biri gibi girer hayatına...<br><br>
+
+Sonra fark etmeden gününün en güzel kısmı olurlar.
+</p>
+
+<h3>— Ali</h3>
+
+`;
+
+}
+
+</script>
+
+</body>
+</html>
