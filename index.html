@@ -14,35 +14,35 @@ overflow:hidden;
 font-family:Arial,sans-serif;
 background:black;
 color:white;
+height:100vh;
 display:flex;
 justify-content:center;
 align-items:center;
-height:100vh;
 text-align:center;
 }
 
-.bg{
+.background{
 position:absolute;
 width:100%;
 height:100%;
-background:linear-gradient(180deg,#ff4d88,#ff99bb,#ffd6e0);
-animation:bgmove 8s infinite alternate;
+background:linear-gradient(180deg,#ff4d88,#ff7aa8,#ffd1dc);
+animation:bg 8s infinite alternate;
 z-index:-2;
 }
 
-@keyframes bgmove{
-from{filter:hue-rotate(0deg);}
-to{filter:hue-rotate(20deg);}
+@keyframes bg{
+0%{filter:hue-rotate(0deg);}
+100%{filter:hue-rotate(25deg);}
 }
 
 .heart{
 position:absolute;
 font-size:25px;
-animation:fly 8s linear infinite;
+animation:float 8s linear infinite;
 opacity:0.7;
 }
 
-@keyframes fly{
+@keyframes float{
 0%{
 transform:translateY(100vh);
 opacity:0;
@@ -54,13 +54,13 @@ opacity:1;
 }
 
 .container{
-width:90%;
+width:88%;
 max-width:420px;
 background:rgba(255,255,255,0.15);
 padding:25px;
 border-radius:30px;
-backdrop-filter:blur(12px);
-box-shadow:0 0 25px rgba(255,255,255,0.4);
+backdrop-filter:blur(10px);
+box-shadow:0 0 25px rgba(255,255,255,0.3);
 animation:fade 1s;
 }
 
@@ -76,36 +76,39 @@ transform:scale(1);
 }
 
 button{
-padding:12px 22px;
+padding:14px 24px;
 border:none;
 border-radius:25px;
-font-size:17px;
+font-size:18px;
 font-weight:bold;
 background:white;
-color:#ff4d88;
+color:#ff2e63;
 margin-top:20px;
 cursor:pointer;
 }
 
 img{
-width:220px;
-border-radius:20px;
+width:230px;
+border-radius:22px;
 margin-top:15px;
-animation:spin 8s linear infinite;
-box-shadow:0 0 20px rgba(255,255,255,0.4);
+box-shadow:0 0 25px rgba(255,255,255,0.5);
+animation:spin 7s infinite alternate;
 }
 
 @keyframes spin{
-0%{transform:rotate(-2deg) scale(1);}
-50%{transform:rotate(2deg) scale(1.05);}
-100%{transform:rotate(-2deg) scale(1);}
+0%{
+transform:rotate(-2deg) scale(1);
+}
+100%{
+transform:rotate(2deg) scale(1.05);
+}
 }
 
 .ikos{
 position:absolute;
-font-size:18px;
 opacity:0.15;
-animation:rotate 12s linear infinite;
+font-size:20px;
+animation:rotate 10s linear infinite;
 }
 
 @keyframes rotate{
@@ -118,28 +121,34 @@ to{transform:rotate(360deg);}
 
 <body>
 
-<div class="bg"></div>
+<div class="background"></div>
 
 <div class="heart" style="left:10%">💞</div>
-<div class="heart" style="left:30%;animation-delay:2s;">💕</div>
+<div class="heart" style="left:25%;animation-delay:2s;">💕</div>
 <div class="heart" style="left:50%;animation-delay:4s;">💖</div>
-<div class="heart" style="left:70%;animation-delay:1s;">💘</div>
-<div class="heart" style="left:85%;animation-delay:5s;">💗</div>
+<div class="heart" style="left:75%;animation-delay:1s;">💘</div>
+<div class="heart" style="left:90%;animation-delay:5s;">💗</div>
 
 <div class="ikos" style="top:10%;left:5%;">ikos 💞</div>
-<div class="ikos" style="top:70%;left:75%;">ikos 💞</div>
+<div class="ikos" style="top:70%;left:75%;">Ali + İkra 💖</div>
 
 <div class="container">
 
-<h1 id="title">💌 Gizli Dosya</h1>
-
 <div id="content">
 
-<p>
-İkra için hazırlanmış özel dosya açılıyor...
+<h1 style="font-size:42px;">💌 Gizli Dosya</h1>
+
+<p style="font-size:20px;line-height:32px;">
+
+İkra için hazırlanmış özel doğum günü dosyası açılıyor... 💞
+
 </p>
 
-<button onclick="next()">Başlat 💞</button>
+<button onclick="scene1()">
+
+Başlat 💖
+
+</button>
 
 </div>
 
@@ -151,27 +160,31 @@ to{transform:rotate(360deg);}
 
 <script>
 
-let step=0;
+function scene1(){
 
-function next(){
+document.getElementById("content").innerHTML = `
 
-step++;
+<h2 style="color:#ff0055;">
+💖 Küçük Bir Soru
+</h2>
 
-if(step==1){
+<p style="font-size:20px;line-height:32px;">
 
-document.getElementById("content").innerHTML=`
+Ali’nin sevmediği şey ne? 😭
 
-<h2>💖 Mini Soru</h2>
+</p>
 
-<p>Ali’nin sevmediği şey ne? 😭</p>
+<button onclick="scene2()">
+Mobil oyunlar
+</button>
 
-<button onclick="correct()">Mobil oyunlar</button>
+<br>
 
-<button onclick="wrong()">Tost ekmeği</button>
+<button onclick="wrong()">
+Tost ekmeği
+</button>
 
 `;
-
-}
 
 }
 
@@ -181,41 +194,26 @@ alert("Jack bile bunu çözdü 😭");
 
 }
 
-function correct(){
-
-document.getElementById("content").innerHTML=`
-
-<p>
-
-İkra… 💞<br><br>
-
-Seninle konuşmak beklediğimden daha güzel geldi bana.<br><br>
-
-Hot Wheels muhabbetlerimiz, random konuşmalarımız falan istemeden günümün parçası oldu 😭<br><br>
-
-Bir de yeşil gözlerin var tabii…
-</p>
-
-<button onclick="scene2()">Devam Et 💌</button>
-
-`;
-
-}
-
 function scene2(){
 
-document.getElementById("content").innerHTML=`
+document.getElementById("content").innerHTML = `
 
-<p>
+<h2 style="color:#ff2e63;">
+Hot Wheels Kızı 🚗💞
+</h2>
 
-Şu mobil oyun olayını sevmemem bile biraz kıskançlıktan galiba 😭<br><br>
+<p style="font-size:18px;line-height:32px;">
 
-Çünkü seni bazen herkesten biraz daha farklı görüyorum.
+Seninle yaptığımız Hot Wheels muhabbetleri,<br>
+random konuşmalarımız,<br>
+saçma kahkahalarımız falan 😭<br><br>
+
+İstemeden günümün en güzel kısmı oldu.
 </p>
 
-<img src="https://upload.wikimedia.org/wikipedia/en/5/52/Jack_Shephard.jpg">
-
-<button onclick="scene3()">Devam 💞</button>
+<button onclick="scene3()">
+Devam 💌
+</button>
 
 `;
 
@@ -223,18 +221,78 @@ document.getElementById("content").innerHTML=`
 
 function scene3(){
 
-document.getElementById("content").innerHTML=`
+document.getElementById("content").innerHTML = `
 
-<h2>İYİ Kİ DOĞDUN İKRA 💞</h2>
+<h2 style="color:#ff0055;">
+Jack & Kate Onayı 💞
+</h2>
 
 <img src="https://upload.wikimedia.org/wikipedia/en/thumb/9/9d/Jack_and_Kate.jpg/640px-Jack_and_Kate.jpg">
 
-<p>
+<p style="font-size:18px;line-height:32px;">
 
-Jack & Kate bile sizi onaylıyor 😭
+Bak onlar bile sizi onaylıyor 😭💖
+
 </p>
 
-<button onclick="finalScene()">Son Mesaj 💌</button>
+<button onclick="scene4()">
+Devam Et 💕
+</button>
+
+`;
+
+}
+
+function scene4(){
+
+document.getElementById("content").innerHTML = `
+
+<h2 style="color:#ff2e63;">
+Küçük Bir İtiraf 💌
+</h2>
+
+<img src="https://upload.wikimedia.org/wikipedia/en/5/52/Jack_Shephard.jpg">
+
+<p style="font-size:18px;line-height:34px;">
+
+Belki bazen fazla kıskanıyorum 😭<br><br>
+
+Şu mobil oyun olayını sevmememin sebebi bile biraz bu.<br><br>
+
+Çünkü seni diğer insanlardan biraz daha farklı görüyorum 💞
+</p>
+
+<button onclick="scene5()">
+Devam 💖
+</button>
+
+`;
+
+}
+
+function scene5(){
+
+document.getElementById("content").innerHTML = `
+
+<h2 style="color:#ff0055;">
+💞 Bir Şey Daha
+</h2>
+
+<p style="font-size:19px;line-height:35px;">
+
+Fenerbahçeli olmanla,<br>
+yeşil gözlerinle,<br>
+beni sinir etmenle,<br>
+random oluşunla bile güzelsin 😭💖<br><br>
+
+Ve sanırım...<br><br>
+
+Seninle kurduğum hayalleri kimseyle değişmem.
+</p>
+
+<button onclick="finalScene()">
+Son Mesaj 💌
+</button>
 
 `;
 
@@ -242,20 +300,41 @@ Jack & Kate bile sizi onaylıyor 😭
 
 function finalScene(){
 
-document.getElementById("content").innerHTML=`
+document.getElementById("content").innerHTML = `
 
-<h1>Seni seviyorum 💞</h1>
+<h1 style="
+font-size:42px;
+color:#ff0055;
+text-shadow:0 0 20px white;
+">
 
-<h2>İyi ki doğdun İkra</h2>
+Seni Seviyorum 💞
 
-<p>
+</h1>
+
+<h2 style="margin-top:20px;">
+İyi ki doğdun İkra
+</h2>
+
+<p style="
+font-size:20px;
+line-height:36px;
+margin-top:25px;
+">
 
 Bazı insanlar normal biri gibi girer hayatına...<br><br>
 
-Sonra fark etmeden gününün en güzel kısmı olurlar.
+Sonra fark etmeden gününün en güzel kısmı olurlar 💖
 </p>
 
-<h3>— Ali</h3>
+<h2 style="
+margin-top:35px;
+color:#ffe6ee;
+">
+
+— Ali
+
+</h2>
 
 `;
 
